@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌱 Grow A Garden</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <header class="game-header">
+            <div class="header-left">
+                <h1 class="game-title">🌱 Grow A Garden</h1>
+                <div class="weather-badge" id="weatherBadge">
+                    <span class="weather-icon" id="weatherIcon">☀️</span>
+                    <span class="weather-text" id="weatherText">Sunny</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="money-display">
+                    <span class="coin-icon">💰</span>
+                    <span class="money-value" id="moneyValue">0</span>
+                </div>
+                <div class="level-display">
+                    <span class="level-label">Level <span id="levelValue">1</span></span>
+                    <div class="xp-bar">
+                        <div class="xp-fill" id="xpFill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="btn-save" id="saveBtn">💾 Save</button>
+                <button class="btn-clear-save" id="clearSaveBtn">🗑️ Clear</button>
+            </div>
+        </header>
+
+        <nav class="game-nav">
+            <button class="nav-tab active" data-tab="garden">🌻 Garden</button>
+            <button class="nav-tab" data-tab="shop">🏪 Shop</button>
+            <button class="nav-tab" data-tab="upgrades">⬆️ Upgrades</button>
+            <button class="nav-tab" data-tab="pets">🐾 Pets</button>
+            <button class="nav-tab" data-tab="events">🎊 Events</button>
+        </nav>
+
+        <main class="game-main">
+            <section class="tab-panel active" id="garden-panel">
+                <div class="garden-header">
+                    <div class="seed-selector">
+                        <span class="selector-label">Selected:</span>
+                        <span class="selector-seed" id="selectedSeedDisplay">None</span>
+                    </div>
+                    <button class="btn-clear" id="clearSeedBtn">Clear</button>
+                </div>
+                
+                <div class="garden-grid" id="gardenGrid"></div>
+                <div class="garden-stats">
+                    <div class="stat-box">
+                        <span class="stat-label">Growing</span>
+                        <span class="stat-number" id="growingStat">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Ready</span>
+                        <span class="stat-number" id="readyStat">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Harvested</span>
+                        <span class="stat-number" id="harvestedStat">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tab-panel" id="shop-panel">
+                <div class="shop-section">
+                    <h2 class="section-title">🌱 Seeds</h2>
+                    <div class="shop-grid" id="seedShopGrid"></div>
+                </div>
+                <div class="shop-section">
+                    <h2 class="section-title">📦 Inventory</h2>
+                    <div class="inventory-grid" id="inventoryGrid"></div>
+                </div>
+            </section>
+
+            <section class="tab-panel" id="upgrades-panel">
+                <div class="shop-section">
+                    <h2 class="section-title">⬆️ Upgrades</h2>
+                    <div class="shop-grid" id="upgradesGrid"></div>
+                </div>
+                <div class="shop-section">
+                    <h2 class="section-title">🏠 Garden Expansion</h2>
+                    <div id="expansionPanel"></div>
+                </div>
+            </section>
+
+            <section class="tab-panel" id="pets-panel">
+                <div class="shop-section">
+                    <h2 class="section-title">🐾 Your Pets</h2>
+                    <div class="shop-grid" id="ownedPetsGrid"></div>
+                </div>
+                <div class="shop-section">
+                    <h2 class="section-title">🏪 Pet Shop</h2>
+                    <div class="shop-grid" id="petShopGrid"></div>
+                </div>
+            </section>
+
+            <section class="tab-panel" id="events-panel">
+                <div class="shop-section" style="text-align: center; padding: 40px 20px;">
+                    <h2 class="section-title">👾 Hungry Plant Event</h2>
+                    <p style="margin-bottom: 20px; color: #666; font-size: 1.1rem;">Feed the Hungry Plant any seed it requests to get an exclusive Seed Pack! (Contains 5 event-only seeds)</p>
+                    
+                    <div class="event-banner" id="hungryPlantBanner" style="display: flex; justify-content: center; max-width: 500px; margin: 0 auto; flex-direction: column; gap: 20px; padding: 30px;">
+                        <div class="event-icon" style="font-size: 4rem;">👾</div>
+                        <div class="event-text" id="hungryPlantText" style="font-size: 1.3rem; font-weight: bold;">Hungry Plant wants:</div>
+                        <div style="display: flex; gap: 10px; justify-content: center;">
+                            <button class="btn-buy btn-feed" id="feedPlantBtn" style="font-size: 1.2rem; padding: 12px 40px;">Feed</button>
+                            <button class="btn-clear" id="skipPlantBtn" style="padding: 12px 20px;" title="Skip for 💰10">⏭️ Skip ($10)</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="game-footer">
+            <div class="mutation-legend">
+                <span class="mutation-tag wet">💧 Wet 2x</span>
+                <span class="mutation-tag golden">✨ Golden 5x</span>
+                <span class="mutation-tag frozen">❄️ Frozen 8x</span>
+                <span class="mutation-tag rainbow">🌈 Rainbow 20x</span>
+            </div>
+            <div class="offline-message" id="offlineMessage">
+                <span>🎉 Welcome back! Earned <strong id="offlineEarnings">0</strong> while away!</span>
+            </div>
+        </footer>
+    </div>
+
+    <div class="modal-overlay" id="harvestModal">
+        <div class="modal-content harvest-modal">
+            <h2 class="modal-title">🌾 Harvest!</h2>
+            <div class="harvest-list" id="harvestList"></div>
+            <div class="harvest-total">
+                <span>Total:</span>
+                <span class="total-amount" id="harvestTotal">💰0</span>
+            </div>
+            <button class="btn-collect" id="collectBtn">Collect</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="seedPackModal">
+        <div class="modal-content harvest-modal">
+            <h2 class="modal-title">🎁 Seed Pack!</h2>
+            <div class="harvest-list" id="seedPackList"></div>
+            <button class="btn-collect" id="collectSeedPackBtn">Awesome!</button>
+        </div>
+    </div>
+
+    <div class="floating-container" id="floatingContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
