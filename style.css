@@ -830,6 +830,552 @@ body {
     background: linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%);
 }
 
+.event-progress-wrap {
+    max-width: 500px;
+    margin: 0 auto 20px;
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: 16px 20px;
+    text-align: left;
+}
+
+.event-season-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.event-season-label {
+    color: var(--green-dark);
+}
+
+.event-countdown {
+    color: var(--orange-dark);
+    font-variant-numeric: tabular-nums;
+}
+
+.event-stats-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.92rem;
+    color: #555;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.event-progress-bar {
+    width: 100%;
+    height: 14px;
+    background: #eee;
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
+    margin-bottom: 10px;
+}
+
+.event-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange) 0%, var(--green-primary) 100%);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+
+.event-milestones {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.milestone-dot {
+    flex: 1;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #999;
+    background: #f1f1f1;
+    border-radius: var(--radius-sm);
+    padding: 4px 2px;
+    transition: var(--transition);
+}
+
+.milestone-dot.ready {
+    color: #fff;
+    background: var(--orange);
+    animation: pulseBanner 1.5s infinite;
+}
+
+.milestone-dot.claimed {
+    color: #fff;
+    background: var(--green-primary);
+    font-size: 1rem;
+}
+
+/* ============== MULTI-HARVEST GARDEN PLOTS ============== */
+
+.garden-plot.multi-harvest-plot {
+    background: linear-gradient(145deg, #6D8F4A 0%, #3E5A28 100%);
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(139, 195, 74, 0.5);
+}
+
+.garden-plot.multi-harvest-plot:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2), inset 0 3px 6px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(139, 195, 74, 0.8);
+}
+
+.garden-plot.multi-harvest-plot.ready {
+    animation: multiReadyPulse 1.4s infinite;
+}
+
+@keyframes multiReadyPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(139, 195, 74, 0.55), inset 0 3px 6px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(139, 195, 74, 0.6); }
+    50% { box-shadow: 0 0 0 9px rgba(139, 195, 74, 0), inset 0 3px 6px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(139, 195, 74, 0.9); }
+}
+
+.garden-plot.regrowing {
+    background: linear-gradient(145deg, #5D4F3A 0%, #3A2F22 100%);
+    cursor: default;
+}
+
+.garden-plot.regrowing .plot-crop {
+    opacity: 0.45;
+    filter: grayscale(0.4);
+}
+
+.garden-plot.regrowing:hover {
+    transform: none;
+}
+
+.progress-fill.regrow-fill {
+    background: linear-gradient(90deg, #A1887F 0%, #6D4C41 100%);
+}
+
+.multi-harvest-badge {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.62rem;
+    font-weight: 800;
+    background: rgba(0, 0, 0, 0.55);
+    color: #C5E1A5;
+    padding: 1px 6px;
+    border-radius: 8px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.garden-plot.multi-harvest-plot .plot-progress {
+    bottom: 24px;
+}
+
+.item-multi-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--green-dark);
+    background: rgba(76, 175, 80, 0.15);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+/* ============== INVENTORY TAB ============== */
+
+.inv-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.shop-subnav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.shop-subtab {
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid transparent;
+    border-radius: 16px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.shop-subtab.active {
+    background: white;
+    border-color: var(--green-primary);
+    color: var(--green-dark);
+}
+
+.shop-subpanel {
+    display: none;
+}
+
+.shop-subpanel.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.index-stats {
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.index-item {
+    cursor: default;
+    position: relative;
+}
+
+.index-item:hover {
+    transform: none;
+    border-color: transparent;
+}
+
+.index-item.not-owned-item {
+    opacity: 0.7;
+    filter: grayscale(0.5);
+}
+
+.item-event-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #9C27B0;
+    background: rgba(156, 39, 176, 0.13);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    margin-left: 4px;
+}
+
+.index-owned-badge {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 10px;
+}
+
+.index-owned-badge.is-owned {
+    background: rgba(76, 175, 80, 0.15);
+    color: var(--green-dark);
+}
+
+.index-owned-badge.is-not-owned {
+    background: rgba(0, 0, 0, 0.08);
+    color: #888;
+}
+
+.inv-hint {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.inv-header-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#toggleDeleteModeBtn.active {
+    background: var(--orange);
+    color: white;
+    border-color: var(--orange);
+}
+
+.delete-mode-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: rgba(244, 67, 54, 0.08);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-weight: 700;
+}
+
+.inv-item.marked-delete {
+    border-color: var(--red);
+    background: rgba(244, 67, 54, 0.12);
+}
+
+.inv-check {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    font-size: 1.1rem;
+}
+
+.inv-item {
+    position: relative;
+}
+
+.inv-delete-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(244, 67, 54, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inv-delete-btn:hover {
+    background: var(--red);
+    transform: scale(1.1);
+}
+
+/* ============== CONFIRM MODALS ============== */
+
+.confirm-modal {
+    max-width: 380px;
+    text-align: center;
+}
+
+.confirm-text {
+    color: #666;
+    margin: 14px 0 20px;
+    line-height: 1.5;
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ef5350 0%, var(--red) 100%);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-danger:hover {
+    transform: scale(1.04);
+}
+
+/* ============== QUEST / BATTLE-PASS SYSTEM ============== */
+
+.quest-pass-card {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a242f 100%);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow-md);
+    color: white;
+}
+
+.quest-pass-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.quest-pass-header .section-title {
+    color: white;
+    margin: 0;
+}
+
+.quest-pass-points {
+    font-weight: 800;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+    padding: 4px 14px;
+    border-radius: 14px;
+}
+
+.quest-pass-track {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.pass-tier {
+    flex: 0 0 auto;
+    min-width: 86px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    padding: 10px 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    border: 2px solid transparent;
+}
+
+.pass-tier.unlocked {
+    border-color: var(--orange);
+    background: rgba(255, 152, 0, 0.18);
+}
+
+.pass-tier.claimed {
+    border-color: var(--green-primary);
+    background: rgba(76, 175, 80, 0.18);
+    opacity: 0.85;
+}
+
+.pass-tier-points {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #cfd8dc;
+}
+
+.pass-tier-reward {
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.pass-tier-btn {
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    background: #555;
+    color: white;
+    transition: var(--transition);
+}
+
+.pass-tier-btn:not(:disabled) {
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+}
+
+.pass-tier-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.quest-reset-info {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.quest-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quest-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.quest-card.ready {
+    border-color: var(--orange);
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+}
+
+.quest-card.claimed {
+    opacity: 0.6;
+}
+
+.quest-card-icon {
+    font-size: 1.8rem;
+    flex: 0 0 auto;
+}
+
+.quest-card-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.quest-card-desc {
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.quest-card-progress-bar {
+    height: 7px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.quest-card-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8BC34A 0%, var(--green-primary) 100%);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.quest-card-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.quest-card-points {
+    font-weight: 700;
+    color: var(--orange-dark);
+}
+
+.quest-claim-btn {
+    flex: 0 0 auto;
+    background: linear-gradient(135deg, var(--green-primary) 0%, var(--green-dark) 100%);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 18px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.quest-claim-btn:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.quest-claim-btn:disabled {
+    background: #ccc;
+    color: #888;
+    cursor: not-allowed;
+}
+
 @media (max-width: 700px) {
     .game-header {
         flex-direction: column;
@@ -848,5 +1394,14 @@ body {
     }
     .shop-grid {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+    .quest-card {
+        flex-wrap: wrap;
+    }
+    .quest-claim-btn {
+        width: 100%;
+    }
+    .pass-tier {
+        min-width: 76px;
     }
 }

@@ -38,6 +38,8 @@
         <nav class="game-nav">
             <button class="nav-tab active" data-tab="garden">🌻 Garden</button>
             <button class="nav-tab" data-tab="shop">🏪 Shop</button>
+            <button class="nav-tab" data-tab="inventory">📦 Inventory</button>
+            <button class="nav-tab" data-tab="quests">📜 Quests</button>
             <button class="nav-tab" data-tab="upgrades">⬆️ Upgrades</button>
             <button class="nav-tab" data-tab="pets">🐾 Pets</button>
             <button class="nav-tab" data-tab="events">🎊 Events</button>
@@ -71,13 +73,64 @@
             </section>
 
             <section class="tab-panel" id="shop-panel">
+                <div class="shop-subnav">
+                    <button class="shop-subtab active" data-shopsub="buy">🌱 Mua hạt giống</button>
+                    <button class="shop-subtab" data-shopsub="index">📖 Seed Index</button>
+                </div>
+
+                <div class="shop-subpanel active" id="shopsub-buy">
+                    <div class="shop-section">
+                        <h2 class="section-title">🌱 Seeds</h2>
+                        <div class="shop-grid" id="seedShopGrid"></div>
+                    </div>
+                </div>
+
+                <div class="shop-subpanel" id="shopsub-index">
+                    <div class="shop-section">
+                        <div class="inv-panel-header">
+                            <h2 class="section-title">📖 Seed Index</h2>
+                            <span class="inv-hint">Toàn bộ hạt giống trong game, kể cả Event · 🔁 = Multi-Harvest</span>
+                        </div>
+                        <div class="index-stats" id="indexStats"></div>
+                        <div class="shop-grid" id="seedIndexGrid"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tab-panel" id="inventory-panel">
                 <div class="shop-section">
-                    <h2 class="section-title">🌱 Seeds</h2>
-                    <div class="shop-grid" id="seedShopGrid"></div>
+                    <div class="inv-panel-header">
+                        <h2 class="section-title">📦 Inventory</h2>
+                        <div class="inv-header-actions">
+                            <button class="btn-clear" id="toggleDeleteModeBtn">🗑️ Chọn để xoá</button>
+                            <button class="btn-danger" id="deleteAllSeedsBtn">🧨 Xoá tất cả</button>
+                        </div>
+                    </div>
+                    <div class="delete-mode-actions" id="deleteModeActions" style="display:none;">
+                        <span>Đã chọn: <strong id="deleteSelectedCount">0</strong></span>
+                        <button class="btn-danger" id="confirmDeleteSelectedBtn" disabled>Xoá đã chọn</button>
+                    </div>
+                    <div class="inventory-grid" id="inventoryGrid"></div>
+                </div>
+            </section>
+
+            <section class="tab-panel" id="quests-panel">
+                <div class="quest-pass-card">
+                    <div class="quest-pass-header">
+                        <h2 class="section-title">🎫 Quest Pass</h2>
+                        <span class="quest-pass-points" id="questPassPoints">0 pts</span>
+                    </div>
+                    <div class="quest-pass-track" id="questPassTrack"></div>
                 </div>
                 <div class="shop-section">
-                    <h2 class="section-title">📦 Inventory</h2>
-                    <div class="inventory-grid" id="inventoryGrid"></div>
+                    <h2 class="section-title">📅 Nhiệm vụ Hàng Ngày</h2>
+                    <div class="quest-reset-info" id="dailyResetInfo"></div>
+                    <div class="quest-list" id="dailyQuestList"></div>
+                </div>
+                <div class="shop-section">
+                    <h2 class="section-title">🗓️ Nhiệm vụ Hàng Tuần</h2>
+                    <div class="quest-reset-info" id="weeklyResetInfo"></div>
+                    <div class="quest-list" id="weeklyQuestList"></div>
                 </div>
             </section>
 
@@ -106,8 +159,10 @@
             <section class="tab-panel" id="events-panel">
                 <div class="shop-section" style="text-align: center; padding: 40px 20px;">
                     <h2 class="section-title">👾 Hungry Plant Event</h2>
-                    <p style="margin-bottom: 20px; color: #666; font-size: 1.1rem;">Feed the Hungry Plant any seed it requests to get an exclusive Seed Pack! (Contains 5 event-only seeds)</p>
-                    
+                    <p style="margin-bottom: 20px; color: #666; font-size: 1.1rem;">Cho Hungry Plant ăn hạt giống nó muốn để nhận Seed Pack! Giữ streak để pack tốt hơn, tích điểm để đạt mốc thưởng lớn.</p>
+
+                    <div id="eventProgressWrap" class="event-progress-wrap"></div>
+
                     <div class="event-banner" id="hungryPlantBanner" style="display: flex; justify-content: center; max-width: 500px; margin: 0 auto; flex-direction: column; gap: 20px; padding: 30px;">
                         <div class="event-icon" style="font-size: 4rem;">👾</div>
                         <div class="event-text" id="hungryPlantText" style="font-size: 1.3rem; font-weight: bold;">Hungry Plant wants:</div>
@@ -150,6 +205,39 @@
             <h2 class="modal-title">🎁 Seed Pack!</h2>
             <div class="harvest-list" id="seedPackList"></div>
             <button class="btn-collect" id="collectSeedPackBtn">Awesome!</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="deleteAllSeedsModal">
+        <div class="modal-content confirm-modal">
+            <h2 class="modal-title">🧨 Xoá tất cả hạt giống?</h2>
+            <p class="confirm-text">Toàn bộ hạt giống trong kho sẽ bị xoá (trừ hạt đang chọn để trồng, nếu có). Hành động này không thể hoàn tác.</p>
+            <div class="confirm-actions">
+                <button class="btn-clear" id="cancelDeleteAllBtn">Hủy</button>
+                <button class="btn-danger" id="confirmDeleteAllBtn">Xoá tất cả</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="deleteSelectedModal">
+        <div class="modal-content confirm-modal">
+            <h2 class="modal-title">🗑️ Xoá hạt đã chọn?</h2>
+            <p class="confirm-text" id="deleteSelectedText"></p>
+            <div class="confirm-actions">
+                <button class="btn-clear" id="cancelDeleteSelectedBtn">Hủy</button>
+                <button class="btn-danger" id="confirmDeleteSelectedConfirmBtn">Xoá</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="deleteCropModal">
+        <div class="modal-content confirm-modal">
+            <h2 class="modal-title">🗑️ Xóa cây Multi-Harvest?</h2>
+            <p class="confirm-text" id="deleteCropText"></p>
+            <div class="confirm-actions">
+                <button class="btn-clear" id="cancelDeleteCropBtn">Hủy</button>
+                <button class="btn-danger" id="confirmDeleteCropBtn">Xóa</button>
+            </div>
         </div>
     </div>
 
