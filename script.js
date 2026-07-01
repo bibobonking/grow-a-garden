@@ -27,19 +27,34 @@ const CROP_DATA = {
     electricPepper: { name: 'Electric Pepper', icon: '⚡', buyPrice: 85, value: 130, growTime: 28, rarity: 'rare', unlock: 2, weatherBonus: { thunderstorm: 1.6 }, multiHarvest: { regrowTime: 16, maxHarvests: 7 } },
     frostApple: { name: 'Frost Apple', icon: '🍎', buyPrice: 220, value: 360, growTime: 50, rarity: 'epic', unlock: 4, weatherBonus: { night: 1.2, rain: 1.1 }, multiHarvest: { regrowTime: 28, maxHarvests: 9 } },
     rainbowSeed: { name: 'Rainbow Seed', icon: '🌈', buyPrice: 1500, value: 2800, growTime: 90, rarity: 'mythic', unlock: 9, weatherBonus: { sunny: 1.1, rain: 1.1, thunderstorm: 1.1, night: 1.1 } },
-    eventFlytrap: { name: 'Venus Flytrap', icon: '🪴', buyPrice: 0, value: 50, growTime: 20, rarity: 'common', unlock: 999, isEvent: true, multiHarvest: { regrowTime: 12, maxHarvests: 5 } },
-    eventBloodRose: { name: 'Blood Rose', icon: '🌹', buyPrice: 0, value: 150, growTime: 40, rarity: 'uncommon', unlock: 999, isEvent: true, multiHarvest: { regrowTime: 18, maxHarvests: 6 } },
-    eventAlienPod: { name: 'Alien Pod', icon: '👽', buyPrice: 0, value: 400, growTime: 60, rarity: 'rare', unlock: 999, isEvent: true },
-    eventEyeTree: { name: 'Eye Tree', icon: '👁️', buyPrice: 0, value: 1000, growTime: 90, rarity: 'epic', unlock: 999, isEvent: true, multiHarvest: { regrowTime: 40, maxHarvests: 8 } },
-    eventYggdrasil: { name: 'Yggdrasil', icon: '🌳', buyPrice: 0, value: 10000, growTime: 200, rarity: 'mythic', unlock: 999, isEvent: true, multiHarvest: { regrowTime: 100, maxHarvests: 12 } }
+
+    kiwi: { name: 'Kiwi Vine', icon: '🥝', buyPrice: 40, value: 65, growTime: 55, rarity: 'uncommon', unlock: 2, multiHarvest: { regrowTime: 20, maxHarvests: 9 } },
+    grape: { name: 'Grape Cluster', icon: '🍇', buyPrice: 65, value: 100, growTime: 80, rarity: 'uncommon', unlock: 3, multiHarvest: { regrowTime: 24, maxHarvests: 10 } },
+    onion: { name: 'Onion', icon: '🧅', buyPrice: 16, value: 26, growTime: 55, rarity: 'common', unlock: 2 },
+    mushroom: { name: 'Mushroom', icon: '🍄', buyPrice: 32, value: 50, growTime: 65, rarity: 'uncommon', unlock: 3, weatherBonus: { rain: 1.3, night: 1.2 } },
+    peach: { name: 'Peach Tree', icon: '🍑', buyPrice: 190, value: 300, growTime: 170, rarity: 'rare', unlock: 6, multiHarvest: { regrowTime: 45, maxHarvests: 7 } },
+    cactusFruit: { name: 'Cactus Fruit', icon: '🌵', buyPrice: 130, value: 210, growTime: 140, rarity: 'rare', unlock: 5, weatherBonus: { sunny: 1.4 } },
+    coffeeBean: { name: 'Coffee Bean', icon: '☕', buyPrice: 260, value: 420, growTime: 190, rarity: 'epic', unlock: 8, multiHarvest: { regrowTime: 55, maxHarvests: 11 } },
+    starFruit: { name: 'Star Fruit', icon: '⭐', buyPrice: 700, value: 1150, growTime: 260, rarity: 'legendary', unlock: 11, weatherBonus: { night: 1.3, thunderstorm: 1.2 } },
+    obsidianRose: { name: 'Obsidian Rose', icon: '🖤', buyPrice: 950, value: 1600, growTime: 280, rarity: 'legendary', unlock: 13, multiHarvest: { regrowTime: 70, maxHarvests: 9 } },
+    celestialLotus: { name: 'Celestial Lotus', icon: '🪷', buyPrice: 1800, value: 3200, growTime: 340, rarity: 'mythic', unlock: 14, weatherBonus: { sunny: 1.15, rain: 1.15, night: 1.15, thunderstorm: 1.15 }, multiHarvest: { regrowTime: 95, maxHarvests: 10 } },
+
+    summerCoconut: { name: 'Summer Coconut', icon: '🥥', buyPrice: 0, value: 60, growTime: 20, rarity: 'common', unlock: 999, isEvent: true, multiHarvest: { regrowTime: 12, maxHarvests: 6 } },
+    summerMango: { name: 'Sunny Mango', icon: '🥭', buyPrice: 0, value: 180, growTime: 40, rarity: 'uncommon', unlock: 999, isEvent: true, multiHarvest: { regrowTime: 18, maxHarvests: 7 } },
+    summerPineapple: { name: 'Beach Pineapple', icon: '🍍', buyPrice: 0, value: 450, growTime: 60, rarity: 'rare', unlock: 999, isEvent: true },
+    summerHibiscus: { name: 'Hibiscus Bloom', icon: '🌺', buyPrice: 0, value: 1100, growTime: 90, rarity: 'epic', unlock: 999, isEvent: true, multiHarvest: { regrowTime: 40, maxHarvests: 8 } },
+    summerSunCrystal: { name: 'Sun Crystal Tree', icon: '☀️', buyPrice: 0, value: 11000, growTime: 200, rarity: 'mythic', unlock: 999, isEvent: true, multiHarvest: { regrowTime: 100, maxHarvests: 12 } }
 };
 
 const MUTATION_DATA = {
     none: { multiplier: 1, icon: '' },
     wet: { multiplier: 2, icon: '💧' },
-    golden: { multiplier: 5, icon: '✨' },
+    shiny: { multiplier: 3, icon: '✨' },
+    golden: { multiplier: 5, icon: '🌟' },
+    frozen: { multiplier: 8, icon: '❄️' },
+    radioactive: { multiplier: 12, icon: '☢️' },
     rainbow: { multiplier: 20, icon: '🌈' },
-    frozen: { multiplier: 8, icon: '❄️' }
+    celestial: { multiplier: 35, icon: '🌌' }
 };
 
 const WEATHER_DATA = {
@@ -64,14 +79,21 @@ const PET_DATA = {
     cat: { name: 'Garden Cat', icon: '🐱', desc: '+10% mutation chance', cost: 6000 },
     dog: { name: 'Loyal Dog', icon: '🐕', desc: '+10% growth speed', cost: 5500 },
     butterfly: { name: 'Magic Butterfly', icon: '🦋', desc: '+5% rainbow chance', cost: 12000 },
-    dragon: { name: 'Garden Dragon', icon: '🐉', desc: '+10% all bonuses', cost: 30000 }
+    dragon: { name: 'Garden Dragon', icon: '🐉', desc: '+10% all bonuses', cost: 30000 },
+
+    // ===== 5 pet mới =====
+    turtle: { name: 'Garden Turtle', icon: '🐢', desc: '+12% multi-harvest regrow speed', cost: 8000 },
+    fox: { name: 'Clever Fox', icon: '🦊', desc: '+8% seed buy discount', cost: 9500 },
+    parrot: { name: 'Chatty Parrot', icon: '🦜', desc: '+20% quest pass points', cost: 11000 },
+    phoenix: { name: 'Phoenix Hatchling', icon: '🐦‍🔥', desc: '+12% frozen mutation chance', cost: 18000 },
+    unicorn: { name: 'Radiant Unicorn', icon: '🦄', desc: '+15% event seed pack quality', cost: 25000 }
 };
 
 const XP_THRESHOLDS = [0, 100, 250, 450, 700, 1000, 1350, 1750, 2200, 2700, 3250, 3850, 4500, 5200, 6000, 7000];
 
 const EVENT_SEASON_DURATION = 24 * 60 * 60 * 1000; // 24h thực mỗi mùa event
 const EVENT_MILESTONES = [5, 15, 30, 50, 80, 120];
-const HUNGRY_PLANT_COOLDOWN = 45 * 1000; // 45s thực giữa các lần plant xuất hiện
+const SUMMER_REQUEST_COOLDOWN = 45 * 1000; // 45s thực giữa các lần yêu cầu mùa hè mới xuất hiện
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const WEEK_MS = 7 * DAY_MS;
@@ -83,7 +105,7 @@ const DAILY_QUEST_POOL = [
     { id: 'd_plant_5', type: 'plant', target: 5, desc: 'Trồng 5 hạt giống', icon: '🌱', points: 15 },
     { id: 'd_earn_200', type: 'earn', target: 200, desc: 'Kiếm 💰200 từ thu hoạch', icon: '💰', points: 20 },
     { id: 'd_buy_3', type: 'buySeed', target: 3, desc: 'Mua 3 hạt giống ở Shop', icon: '🏪', points: 15 },
-    { id: 'd_feed_2', type: 'feedPlant', target: 2, desc: 'Cho Hungry Plant ăn 2 lần', icon: '👾', points: 20 },
+    { id: 'd_feed_2', type: 'feedPlant', target: 2, desc: 'Đóng góp cho The Summer 2 lần', icon: '☀️', points: 20 },
     { id: 'd_mutation_1', type: 'mutation', target: 1, desc: 'Thu hoạch 1 cây có đột biến', icon: '✨', points: 20 },
     { id: 'd_multi_3', type: 'multiHarvest', target: 3, desc: 'Hái cây multi-harvest 3 lần', icon: '🔁', points: 20 }
 ];
@@ -93,7 +115,7 @@ const WEEKLY_QUEST_POOL = [
     { id: 'w_earn_1500', type: 'earn', target: 1500, desc: 'Kiếm 💰1500 từ thu hoạch', icon: '💰', points: 100 },
     { id: 'w_level_2', type: 'levelGain', target: 2, desc: 'Lên 2 cấp trong tuần', icon: '⭐', points: 90 },
     { id: 'w_buy_15', type: 'buySeed', target: 15, desc: 'Mua 15 hạt giống', icon: '🏪', points: 70 },
-    { id: 'w_feed_10', type: 'feedPlant', target: 10, desc: 'Cho Hungry Plant ăn 10 lần', icon: '👾', points: 90 },
+    { id: 'w_feed_10', type: 'feedPlant', target: 10, desc: 'Đóng góp cho The Summer 10 lần', icon: '☀️', points: 90 },
     { id: 'w_multi_15', type: 'multiHarvest', target: 15, desc: 'Hái cây multi-harvest 15 lần', icon: '🔁', points: 90 }
 ];
 
@@ -134,16 +156,16 @@ let gameState = {
     weather: 'sunny',
     weatherTimer: 0,
     totalHarvested: 0,
-    hungryPlant: {
+    summerEvent: {
         seed: null,
-        cooldownUntil: 0,        // timestamp: khi nào plant mới có thể xuất hiện lại
-        streak: 0,               // số lần feed liên tiếp không bị skip
+        cooldownUntil: 0,        // timestamp: khi nào yêu cầu mới có thể xuất hiện lại
+        streak: 0,               // số lần đóng góp liên tiếp không bị skip
         bestStreak: 0,
-        feedPoints: 0,           // tích lũy điểm trong mùa hiện tại, dùng cho mốc thưởng
+        sunPoints: 0,            // tích lũy điểm trong mùa hiện tại, dùng cho mốc thưởng
         milestonesClaimed: [],   // các mốc đã nhận thưởng trong mùa hiện tại
         seasonId: 1,             // số thứ tự mùa event
         seasonStart: Date.now(),
-        totalFed: 0              // tổng số lần feed all-time
+        totalContributed: 0      // tổng số lần đóng góp all-time
     },
     quests: {
         daily: makeDailyQuests(),
@@ -193,23 +215,27 @@ function loadGame() {
         if (saved) {
             const data = JSON.parse(saved);
             if (data && typeof data === 'object') {
-                const defaultHungryPlant = gameState.hungryPlant;
+                const defaultSummerEvent = gameState.summerEvent;
                 gameState = { ...gameState, ...data };
                 gameState.plots = gameState.plots || [];
                 gameState.upgrades = gameState.upgrades || {};
                 gameState.pets = gameState.pets || [];
-                // Migrate old/missing hungryPlant shape without losing new fields
-                gameState.hungryPlant = { ...defaultHungryPlant, ...(data.hungryPlant || {}) };
-                if (typeof gameState.hungryPlant.cooldownUntil !== 'number') gameState.hungryPlant.cooldownUntil = 0;
-                if (typeof gameState.hungryPlant.streak !== 'number') gameState.hungryPlant.streak = 0;
-                if (typeof gameState.hungryPlant.bestStreak !== 'number') gameState.hungryPlant.bestStreak = 0;
-                if (typeof gameState.hungryPlant.feedPoints !== 'number') gameState.hungryPlant.feedPoints = 0;
-                if (!Array.isArray(gameState.hungryPlant.milestonesClaimed)) gameState.hungryPlant.milestonesClaimed = [];
-                if (typeof gameState.hungryPlant.seasonId !== 'number') gameState.hungryPlant.seasonId = 1;
-                if (typeof gameState.hungryPlant.seasonStart !== 'number') gameState.hungryPlant.seasonStart = Date.now();
-                if (typeof gameState.hungryPlant.totalFed !== 'number') gameState.hungryPlant.totalFed = 0;
-                delete gameState.hungryPlant.active;
-                delete gameState.hungryPlant.cooldown;
+                // Migrate old hungryPlant save (nếu có) sang summerEvent, và đảm bảo đủ field mới
+                const legacy = data.summerEvent || data.hungryPlant || {};
+                gameState.summerEvent = { ...defaultSummerEvent, ...legacy };
+                if (typeof gameState.summerEvent.cooldownUntil !== 'number') gameState.summerEvent.cooldownUntil = 0;
+                if (typeof gameState.summerEvent.streak !== 'number') gameState.summerEvent.streak = 0;
+                if (typeof gameState.summerEvent.bestStreak !== 'number') gameState.summerEvent.bestStreak = 0;
+                if (typeof gameState.summerEvent.sunPoints !== 'number') gameState.summerEvent.sunPoints = ensureNumber(legacy.feedPoints, 0);
+                if (!Array.isArray(gameState.summerEvent.milestonesClaimed)) gameState.summerEvent.milestonesClaimed = [];
+                if (typeof gameState.summerEvent.seasonId !== 'number') gameState.summerEvent.seasonId = 1;
+                if (typeof gameState.summerEvent.seasonStart !== 'number') gameState.summerEvent.seasonStart = Date.now();
+                if (typeof gameState.summerEvent.totalContributed !== 'number') gameState.summerEvent.totalContributed = ensureNumber(legacy.totalFed, 0);
+                // seed cũ từ event Hungry Plant không còn tồn tại trong CROP_DATA, reset lại yêu cầu hiện tại
+                if (gameState.summerEvent.seed && !CROP_DATA[gameState.summerEvent.seed]) gameState.summerEvent.seed = null;
+                delete gameState.summerEvent.active;
+                delete gameState.summerEvent.cooldown;
+                delete gameState.hungryPlant;
                 const defaultQuests = { daily: makeDailyQuests(), weekly: makeWeeklyQuests(), dayStart: Date.now(), weekStart: Date.now(), passPoints: 0, passTiersClaimed: [], levelAtWeekStart: gameState.level || 1 };
                 gameState.quests = { ...defaultQuests, ...(data.quests || {}) };
                 if (!Array.isArray(gameState.quests.daily) || gameState.quests.daily.length === 0) gameState.quests.daily = makeDailyQuests();
@@ -385,10 +411,15 @@ function calculateMutation() {
     chance += (u.coldStorage?.level || 0) * 0.02;
     chance += (u.rainbowGarden?.level || 0) * 0.01;
     chance += getPetBonus('mutation');
-    if (rand < chance * 0.3) return 'wet';
-    if (rand < chance * 0.4) return 'golden';
-    if (rand < chance * 0.45) return 'frozen';
-    if (rand < chance * 0.48) return 'rainbow';
+    const frozenBonus = getPetBonus('frozen');
+    // Thứ tự từ phổ biến -> hiếm nhất, mỗi ngưỡng cộng dồn vào ngưỡng trước
+    if (rand < chance * 0.30) return 'wet';
+    if (rand < chance * 0.38) return 'shiny';
+    if (rand < chance * 0.46) return 'golden';
+    if (rand < chance * (0.50 + frozenBonus)) return 'frozen';
+    if (rand < chance * (0.53 + frozenBonus)) return 'radioactive';
+    if (rand < chance * (0.545 + frozenBonus)) return 'rainbow';
+    if (rand < chance * (0.55 + frozenBonus)) return 'celestial';
     return 'none';
 }
 
@@ -475,6 +506,11 @@ function getPetBonus(type) {
             if (type === 'growth' && p === 'dog') bonus += 0.1;
             if (type === 'rainbow' && p === 'butterfly') bonus += 0.05;
             if (type === 'all' && p === 'dragon') bonus += 0.1;
+            if (type === 'regrow' && p === 'turtle') bonus += 0.12;
+            if (type === 'discount' && p === 'fox') bonus += 0.08;
+            if (type === 'passPoints' && p === 'parrot') bonus += 0.2;
+            if (type === 'frozen' && p === 'phoenix') bonus += 0.12;
+            if (type === 'eventQuality' && p === 'unicorn') bonus += 0.15;
         }
     });
     return bonus;
@@ -522,7 +558,7 @@ function startGameLoop() {
     setInterval(() => {
         updateWeather();
         updateGrowth();
-        updateHungryPlant();
+        updateSummerEvent();
         renderGarden();
     }, 1000);
 
@@ -555,8 +591,9 @@ function updateGrowth() {
             if (cData.weatherBonus && cData.weatherBonus[currentWeather]) {
                 weatherBonus = cData.weatherBonus[currentWeather];
             }
+            const regrowMult = plot.regrowing ? (1 + getPetBonus('regrow')) : 1;
             const effectiveGrowTime = plot.regrowing && cData.multiHarvest ? cData.multiHarvest.regrowTime : cData.growTime;
-            const perSec = (100 / effectiveGrowTime) * gMult * wData.growth * weatherBonus;
+            const perSec = (100 / effectiveGrowTime) * gMult * wData.growth * weatherBonus * regrowMult;
             plot.progress = Math.min(100, plot.progress + perSec);
             if (plot.progress >= 100 && plot.regrowing) {
                 plot.regrowing = false;
@@ -578,7 +615,7 @@ function renderAll() {
     renderUpgrades();
     renderExpansion();
     renderPets();
-    renderHungryPlant();
+    renderSummerEvent();
     renderQuests();
 }
 
@@ -684,7 +721,8 @@ function renderShop() {
         if (unlockLevel > playerLevel || cData.isEvent) return;
         renderedCount++;
         const owned = getInventoryCount(key);
-        const buyPrice = ensureNumber(cData.buyPrice, 0);
+        const rawBuyPrice = ensureNumber(cData.buyPrice, 0);
+        const buyPrice = Math.max(1, Math.round(rawBuyPrice * (1 - getPetBonus('discount'))));
         const sellValue = ensureNumber(cData.value, 0);
         const canAfford = currentMoney >= buyPrice;
         const item = document.createElement('div');
@@ -768,10 +806,11 @@ function purchaseSeed(key) {
         console.error('Invalid crop key:', key);
         return;
     }
-    const price = ensureNumber(cData.buyPrice, 0);
+    const basePrice = ensureNumber(cData.buyPrice, 0);
+    const price = Math.max(1, Math.round(basePrice * (1 - getPetBonus('discount'))));
     const currentMoney = ensureNumber(gameState.money, 0);
-    if (price <= 0) {
-        console.error('Invalid price:', price);
+    if (basePrice <= 0) {
+        console.error('Invalid price:', basePrice);
         return;
     }
     if (currentMoney >= price) {
@@ -936,18 +975,33 @@ function purchaseUpgrade(key) {
     }
 }
 
+const MAX_GARDEN_SIZE = 30;
+const EXPANSION_STEP = 3; // mỗi lần nâng cấp thêm 3 ô
+
 function renderExpansion() {
     const panel = document.getElementById('expansionPanel');
     if (!panel) return;
     const current = gameState.gardenSize || 9;
-    const nextSize = Math.floor((Math.sqrt(current) + 1) ** 2);
-    const cost = Math.floor(1000 * Math.pow(1.5, Math.sqrt(current) - 2));
+
+    if (current >= MAX_GARDEN_SIZE) {
+        panel.innerHTML = `
+            <div class="expansion-card">
+                <div class="expansion-current">Current: ${current} plots</div>
+                <div class="expansion-maxed">🏆 Đã đạt giới hạn tối đa ${MAX_GARDEN_SIZE} ô đất!</div>
+            </div>
+        `;
+        return;
+    }
+
+    const nextSize = Math.min(MAX_GARDEN_SIZE, current + EXPANSION_STEP);
+    const stepsFromBase = Math.round((current - 9) / EXPANSION_STEP);
+    const cost = Math.floor(1000 * Math.pow(1.5, stepsFromBase));
     const safeCost = ensureNumber(cost, 0);
     const currentMoney = ensureNumber(gameState.money, 0);
     const canAfford = currentMoney >= safeCost;
     panel.innerHTML = `
         <div class="expansion-card">
-            <div class="expansion-current">Current: ${current} plots</div>
+            <div class="expansion-current">Current: ${current} / ${MAX_GARDEN_SIZE} plots</div>
             <button class="btn-buy ${!canAfford ? 'cant-afford' : ''}" id="expandBtn">Expand to ${nextSize} - 💰${safeCost}</button>
         </div>
     `;
@@ -956,12 +1010,14 @@ function renderExpansion() {
 
 function purchaseExpansion(cost, newSize) {
     if (typeof cost !== 'number' || cost <= 0) return;
+    const cappedSize = Math.min(MAX_GARDEN_SIZE, newSize);
+    if (gameState.gardenSize >= MAX_GARDEN_SIZE) return;
     if ((gameState.money || 0) >= cost) {
         gameState.money -= cost;
-        while (gameState.plots.length < newSize) {
+        while (gameState.plots.length < cappedSize) {
             gameState.plots.push(null);
         }
-        gameState.gardenSize = newSize;
+        gameState.gardenSize = cappedSize;
         createPlots();
         showFloatingText(window.innerWidth / 2, window.innerHeight / 2, 'Expanded!', 'success');
         renderAll();
@@ -1056,21 +1112,21 @@ function purchasePet(key) {
 }
 
 function checkEventSeasonRollover() {
-    const hp = gameState.hungryPlant;
+    const se = gameState.summerEvent;
     const now = Date.now();
-    if (now - hp.seasonStart >= EVENT_SEASON_DURATION) {
+    if (now - se.seasonStart >= EVENT_SEASON_DURATION) {
         // Mùa mới: reset điểm/mốc nhưng giữ lại thống kê all-time
-        hp.seasonId = (hp.seasonId || 1) + 1;
-        hp.seasonStart = now;
-        hp.feedPoints = 0;
-        hp.milestonesClaimed = [];
-        hp.streak = 0;
+        se.seasonId = (se.seasonId || 1) + 1;
+        se.seasonStart = now;
+        se.sunPoints = 0;
+        se.milestonesClaimed = [];
+        se.streak = 0;
     }
 }
 
 function getEventSeasonTimeLeft() {
-    const hp = gameState.hungryPlant;
-    const elapsed = Date.now() - hp.seasonStart;
+    const se = gameState.summerEvent;
+    const elapsed = Date.now() - se.seasonStart;
     return Math.max(0, EVENT_SEASON_DURATION - elapsed);
 }
 
@@ -1082,66 +1138,66 @@ function formatCountdown(ms) {
     return `${h}h ${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s`;
 }
 
-function updateHungryPlant() {
-    const hp = gameState.hungryPlant;
-    if (!hp) return;
+function updateSummerEvent() {
+    const se = gameState.summerEvent;
+    if (!se) return;
 
     checkEventSeasonRollover();
 
     const now = Date.now();
-    if (!hp.seed && now >= (hp.cooldownUntil || 0)) {
+    if (!se.seed && now >= (se.cooldownUntil || 0)) {
         const playerLevel = gameState.level || 1;
-        // Ưu tiên seed mà người chơi ĐANG SỞ HỮU để feed bớt khó chịu,
+        // Ưu tiên seed mà người chơi ĐANG SỞ HỮU để đóng góp bớt khó chịu,
         // nếu không có gì trong kho thì mới rơi vào pool theo level (tỉ lệ thấp hơn).
         const unlockedAll = Object.keys(CROP_DATA).filter(k => CROP_DATA[k].unlock <= playerLevel && !CROP_DATA[k].isEvent);
         const ownedUnlocked = unlockedAll.filter(k => getInventoryCount(k) > 0);
         let pool = ownedUnlocked.length > 0 ? ownedUnlocked : unlockedAll;
         if (pool.length === 0) pool = unlockedAll.length > 0 ? unlockedAll : ['wheat'];
         const randomSeed = pool[Math.floor(Math.random() * pool.length)];
-        hp.seed = randomSeed;
+        se.seed = randomSeed;
     }
-    renderHungryPlant();
+    renderSummerEvent();
 }
 
 function getStreakMultiplier(streak) {
-    // Mỗi 3 lần feed liên tiếp tăng 10% chất lượng pack, tối đa +50%
-    return 1 + Math.min(0.5, Math.floor(streak / 3) * 0.1);
+    // Mỗi 3 lần đóng góp liên tiếp tăng 10% chất lượng pack, tối đa +50%, cộng thêm bonus từ Unicorn
+    return 1 + Math.min(0.5, Math.floor(streak / 3) * 0.1) + getPetBonus('eventQuality');
 }
 
-function renderHungryPlant() {
-    const hp = gameState.hungryPlant;
-    const banner = document.getElementById('hungryPlantBanner');
-    const text = document.getElementById('hungryPlantText');
-    const btn = document.getElementById('feedPlantBtn');
-    const skipBtn = document.getElementById('skipPlantBtn');
+function renderSummerEvent() {
+    const se = gameState.summerEvent;
+    const banner = document.getElementById('summerEventBanner');
+    const text = document.getElementById('summerEventText');
+    const btn = document.getElementById('contributeSunBtn');
+    const skipBtn = document.getElementById('skipSunRequestBtn');
     if (!banner || !text || !btn) return;
 
-    if (hp && hp.seed) {
-        const seedKey = hp.seed;
+    if (se && se.seed) {
+        const seedKey = se.seed;
         const cData = CROP_DATA[seedKey];
         const count = getInventoryCount(seedKey);
 
-        text.innerHTML = `<strong>👾 Hungry Plant:</strong> "I want 1x ${cData.icon} ${cData.name}!" (Have: ${count})`;
+        text.innerHTML = `<strong>☀️ The Summer đang cần:</strong> 1x ${cData.icon} ${cData.name}! (Đang có: ${count})`;
 
         if (count > 0) {
-            btn.className = 'btn-buy btn-feed';
+            btn.className = 'btn-buy btn-sun';
             btn.disabled = false;
-            btn.textContent = 'Feed';
+            btn.textContent = 'Đóng góp';
         } else {
-            btn.className = 'btn-buy btn-feed cant-afford';
+            btn.className = 'btn-buy btn-sun cant-afford';
             btn.disabled = true;
-            btn.textContent = 'Need Seed';
+            btn.textContent = 'Thiếu hạt giống';
         }
         banner.style.display = 'flex';
         if (skipBtn) skipBtn.style.display = '';
     } else {
-        // Plant đang nghỉ - hiện đếm ngược tới khi xuất hiện lại
-        const msLeft = Math.max(0, (hp.cooldownUntil || 0) - Date.now());
+        // Đang chờ yêu cầu mới xuất hiện
+        const msLeft = Math.max(0, (se.cooldownUntil || 0) - Date.now());
         const secLeft = Math.ceil(msLeft / 1000);
-        text.innerHTML = `<strong>👾 Hungry Plant</strong> đang ngủ... quay lại sau <strong>${secLeft}s</strong>`;
-        btn.className = 'btn-buy btn-feed cant-afford';
+        text.innerHTML = `<strong>☀️ The Summer</strong> đang nghỉ nắng... quay lại sau <strong>${secLeft}s</strong>`;
+        btn.className = 'btn-buy btn-sun cant-afford';
         btn.disabled = true;
-        btn.textContent = 'Resting';
+        btn.textContent = 'Đang nghỉ';
         if (skipBtn) skipBtn.style.display = 'none';
         banner.style.display = 'flex';
     }
@@ -1150,36 +1206,36 @@ function renderHungryPlant() {
 }
 
 function renderEventProgress() {
-    const hp = gameState.hungryPlant;
+    const se = gameState.summerEvent;
     const wrap = document.getElementById('eventProgressWrap');
     if (!wrap) return;
 
-    const nextMilestone = EVENT_MILESTONES.find(m => !hp.milestonesClaimed.includes(m));
+    const nextMilestone = EVENT_MILESTONES.find(m => !se.milestonesClaimed.includes(m));
     const prevMilestone = [...EVENT_MILESTONES].reverse().find(m => m < (nextMilestone || Infinity)) || 0;
     const target = nextMilestone || EVENT_MILESTONES[EVENT_MILESTONES.length - 1];
     const span = target - prevMilestone || 1;
     const pct = nextMilestone
-        ? Math.min(100, Math.max(0, ((hp.feedPoints - prevMilestone) / span) * 100))
+        ? Math.min(100, Math.max(0, ((se.sunPoints - prevMilestone) / span) * 100))
         : 100;
 
     const timeLeft = getEventSeasonTimeLeft();
 
     wrap.innerHTML = `
         <div class="event-season-row">
-            <span class="event-season-label">🍂 Mùa Event #${hp.seasonId}</span>
+            <span class="event-season-label">☀️ Mùa The Summer #${se.seasonId}</span>
             <span class="event-countdown">⏳ ${formatCountdown(timeLeft)}</span>
         </div>
         <div class="event-stats-row">
-            <span>🔥 Streak: <strong>${hp.streak}</strong> (Best: ${hp.bestStreak})</span>
-            <span>🌟 Điểm mùa: <strong>${hp.feedPoints}</strong></span>
+            <span>🔥 Streak: <strong>${se.streak}</strong> (Best: ${se.bestStreak})</span>
+            <span>🌟 Điểm nắng: <strong>${se.sunPoints}</strong></span>
         </div>
         <div class="event-progress-bar">
             <div class="event-progress-fill" style="width:${pct}%"></div>
         </div>
         <div class="event-milestones">
             ${EVENT_MILESTONES.map(m => `
-                <span class="milestone-dot ${hp.milestonesClaimed.includes(m) ? 'claimed' : (hp.feedPoints >= m ? 'ready' : '')}" title="Mốc ${m} điểm">
-                    ${hp.milestonesClaimed.includes(m) ? '🎁' : m}
+                <span class="milestone-dot ${se.milestonesClaimed.includes(m) ? 'claimed' : (se.sunPoints >= m ? 'ready' : '')}" title="Mốc ${m} điểm">
+                    ${se.milestonesClaimed.includes(m) ? '🎁' : m}
                 </span>
             `).join('')}
         </div>
@@ -1187,10 +1243,10 @@ function renderEventProgress() {
 }
 
 function checkMilestoneRewards() {
-    const hp = gameState.hungryPlant;
+    const se = gameState.summerEvent;
     EVENT_MILESTONES.forEach(milestone => {
-        if (hp.feedPoints >= milestone && !hp.milestonesClaimed.includes(milestone)) {
-            hp.milestonesClaimed.push(milestone);
+        if (se.sunPoints >= milestone && !se.milestonesClaimed.includes(milestone)) {
+            se.milestonesClaimed.push(milestone);
             grantMilestoneReward(milestone);
         }
     });
@@ -1209,14 +1265,14 @@ function grantMilestoneReward(milestone) {
         guaranteedCounts[key] = (guaranteedCounts[key] || 0) + 1;
     }
     showFloatingText(window.innerWidth / 2, window.innerHeight / 2, `🏆 Mốc ${milestone}: +💰${moneyReward}!`, 'success');
-    showSeedPackModal(guaranteedCounts, `🏆 Mốc ${milestone} điểm!`);
+    showSeedPackModal(guaranteedCounts, `🏆 Mốc ${milestone} điểm nắng!`);
     renderAll();
 }
 
-function feedHungryPlant() {
-    const hp = gameState.hungryPlant;
-    if (!hp || !hp.seed) return;
-    const seedKey = hp.seed;
+function contributeSummerEvent() {
+    const se = gameState.summerEvent;
+    if (!se || !se.seed) return;
+    const seedKey = se.seed;
 
     if (getInventoryCount(seedKey) >= 1) {
         gameState.inventory[seedKey]--;
@@ -1224,38 +1280,38 @@ function feedHungryPlant() {
             gameState.selectedSeed = null;
         }
 
-        hp.streak = (hp.streak || 0) + 1;
-        hp.bestStreak = Math.max(hp.bestStreak || 0, hp.streak);
-        hp.totalFed = (hp.totalFed || 0) + 1;
-        hp.feedPoints = (hp.feedPoints || 0) + 1;
+        se.streak = (se.streak || 0) + 1;
+        se.bestStreak = Math.max(se.bestStreak || 0, se.streak);
+        se.totalContributed = (se.totalContributed || 0) + 1;
+        se.sunPoints = (se.sunPoints || 0) + 1;
 
-        const banner = document.getElementById('hungryPlantBanner');
+        const banner = document.getElementById('summerEventBanner');
         if (banner) {
             const rect = banner.getBoundingClientRect();
-            showFloatingText(rect.left + rect.width / 2, rect.top, `🔥 Streak ${hp.streak}!`, 'xp');
+            showFloatingText(rect.left + rect.width / 2, rect.top, `🔥 Streak ${se.streak}!`, 'xp');
         }
 
-        openSeedPack(getStreakMultiplier(hp.streak));
+        openSeedPack(getStreakMultiplier(se.streak));
         checkMilestoneRewards();
         updateQuestProgress('feedPlant', 1);
 
-        hp.seed = null;
-        hp.cooldownUntil = Date.now() + HUNGRY_PLANT_COOLDOWN;
-        updateHungryPlant();
+        se.seed = null;
+        se.cooldownUntil = Date.now() + SUMMER_REQUEST_COOLDOWN;
+        updateSummerEvent();
         renderAll();
     }
 }
 
-function skipHungryPlant() {
-    const hp = gameState.hungryPlant;
-    if (!hp || !hp.seed) return;
+function skipSummerEvent() {
+    const se = gameState.summerEvent;
+    if (!se || !se.seed) return;
     if ((gameState.money || 0) >= 10) {
         gameState.money -= 10;
-        hp.seed = null;
-        hp.streak = 0; // skip làm mất combo
-        hp.cooldownUntil = Date.now() + HUNGRY_PLANT_COOLDOWN;
+        se.seed = null;
+        se.streak = 0; // skip làm mất combo
+        se.cooldownUntil = Date.now() + SUMMER_REQUEST_COOLDOWN;
         showFloatingText(window.innerWidth / 2, window.innerHeight / 2, '-💰10 (mất streak)', 'money');
-        updateHungryPlant();
+        updateSummerEvent();
         renderAll();
     } else {
         showFloatingText(window.innerWidth / 2, window.innerHeight / 2, 'Need $10!', 'money');
@@ -1285,11 +1341,11 @@ function getRandomEventSeed(qualityMultiplier = 1) {
     const t2 = 0.045 * qualityMultiplier;
     const t3 = 0.170 * qualityMultiplier;
     const t4 = 0.450 * qualityMultiplier;
-    if (rand < t1) return 'eventYggdrasil';
-    if (rand < t2) return 'eventEyeTree';
-    if (rand < t3) return 'eventAlienPod';
-    if (rand < t4) return 'eventBloodRose';
-    return 'eventFlytrap';
+    if (rand < t1) return 'summerSunCrystal';
+    if (rand < t2) return 'summerHibiscus';
+    if (rand < t3) return 'summerPineapple';
+    if (rand < t4) return 'summerMango';
+    return 'summerCoconut';
 }
 
 function showSeedPackModal(counts, title = '🎁 Seed Pack!') {
@@ -1354,8 +1410,9 @@ function updateQuestProgress(type, amount) {
 function claimQuest(quest) {
     if (quest.claimed || quest.progress < quest.target) return;
     quest.claimed = true;
-    gameState.quests.passPoints = (gameState.quests.passPoints || 0) + quest.points;
-    showFloatingText(window.innerWidth / 2, window.innerHeight / 2, `+${quest.points} pts!`, 'xp');
+    const pointsGained = Math.round(quest.points * (1 + getPetBonus('passPoints')));
+    gameState.quests.passPoints = (gameState.quests.passPoints || 0) + pointsGained;
+    showFloatingText(window.innerWidth / 2, window.innerHeight / 2, `+${pointsGained} pts!`, 'xp');
     checkQuestPassTiers();
     renderAll();
 }
@@ -1524,8 +1581,8 @@ function setupEventListeners() {
     document.getElementById('confirmDeleteCropBtn')?.addEventListener('click', confirmDeleteCrop);
 
 
-    document.getElementById('feedPlantBtn')?.addEventListener('click', feedHungryPlant);
-    document.getElementById('skipPlantBtn')?.addEventListener('click', skipHungryPlant);
+    document.getElementById('contributeSunBtn')?.addEventListener('click', contributeSummerEvent);
+    document.getElementById('skipSunRequestBtn')?.addEventListener('click', skipSummerEvent);
     document.getElementById('collectSeedPackBtn')?.addEventListener('click', () => {
         document.getElementById('seedPackModal')?.classList.remove('active');
     });

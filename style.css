@@ -376,6 +376,11 @@ body {
 }
 
 .mutation-wet { filter: drop-shadow(0 0 5px #2196F3); }
+.mutation-shiny { filter: drop-shadow(0 0 6px #FFFFFF) drop-shadow(0 0 3px #B3E5FC); animation: shinyTwinkle 1.2s infinite; }
+@keyframes shinyTwinkle {
+    0%, 100% { filter: drop-shadow(0 0 6px #FFFFFF) drop-shadow(0 0 3px #B3E5FC); }
+    50% { filter: drop-shadow(0 0 10px #FFFFFF) drop-shadow(0 0 5px #81D4FA); }
+}
 .mutation-golden { filter: drop-shadow(0 0 8px #FFD700); }
 .mutation-rainbow { animation: rainbowGlow 1s infinite; }
 @keyframes rainbowGlow {
@@ -386,6 +391,18 @@ body {
     100% { filter: drop-shadow(0 0 5px #9C27B0); }
 }
 .mutation-frozen { filter: drop-shadow(0 0 5px #00BCD4); }
+.mutation-radioactive { filter: drop-shadow(0 0 6px #76FF03); animation: radioactivePulse 0.8s infinite; }
+@keyframes radioactivePulse {
+    0%, 100% { filter: drop-shadow(0 0 6px #76FF03); }
+    50% { filter: drop-shadow(0 0 12px #C6FF00); }
+}
+.mutation-celestial { animation: celestialGlow 2.2s infinite; }
+@keyframes celestialGlow {
+    0% { filter: drop-shadow(0 0 6px #7C4DFF); }
+    33% { filter: drop-shadow(0 0 9px #E040FB); }
+    66% { filter: drop-shadow(0 0 9px #40C4FF); }
+    100% { filter: drop-shadow(0 0 6px #7C4DFF); }
+}
 
 .garden-stats {
     display: flex;
@@ -586,6 +603,13 @@ body {
     margin-bottom: 10px;
 }
 
+.expansion-maxed {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--orange-dark, #E65100);
+    padding: 10px;
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -744,6 +768,12 @@ body {
     color: #1565C0;
 }
 
+.mutation-tag.shiny {
+    background: linear-gradient(135deg, #FFFFFF 0%, #E1F5FE 100%);
+    color: #0277BD;
+    border: 1px solid #B3E5FC;
+}
+
 .mutation-tag.golden {
     background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
     color: #F57C00;
@@ -757,6 +787,16 @@ body {
 .mutation-tag.frozen {
     background: linear-gradient(135deg, #E0F7FA 0%, #B2EBF2 100%);
     color: #00838F;
+}
+
+.mutation-tag.radioactive {
+    background: linear-gradient(135deg, #F1F8E9 0%, #DCEDC8 100%);
+    color: #558B2F;
+}
+
+.mutation-tag.celestial {
+    background: linear-gradient(135deg, #EDE7F6 0%, #D1C4E9 100%);
+    color: #4527A0;
 }
 
 .offline-message {
@@ -780,21 +820,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, #FFCDD2 0%, #EF9A9A 100%);
+    background: linear-gradient(135deg, #FFE082 0%, #FFB74D 100%);
     padding: 12px 20px;
     border-radius: var(--radius-md);
     margin-bottom: 15px;
-    box-shadow: 0 4px 12px rgba(244, 67, 54, 0.2);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
     animation: pulseBanner 2s infinite;
-    border: 2px dashed #E53935;
+    border: 2px dashed #FB8C00;
     flex-wrap: wrap;
     gap: 10px;
 }
 
 @keyframes pulseBanner {
-    0% { box-shadow: 0 4px 12px rgba(244, 67, 54, 0.2); }
-    50% { box-shadow: 0 4px 20px rgba(244, 67, 54, 0.5); }
-    100% { box-shadow: 0 4px 12px rgba(244, 67, 54, 0.2); }
+    0% { box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25); }
+    50% { box-shadow: 0 4px 20px rgba(255, 152, 0, 0.55); }
+    100% { box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25); }
 }
 
 .event-info {
@@ -805,29 +845,29 @@ body {
 
 .event-icon {
     font-size: 2rem;
-    animation: chomp 1s infinite;
+    animation: sunPulse 2s infinite;
 }
 
-@keyframes chomp {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2) rotate(5deg); }
+@keyframes sunPulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.15) rotate(15deg); }
 }
 
 .event-text {
     font-size: 1.05rem;
-    color: #B71C1C;
+    color: #E65100;
 }
 
-.btn-feed {
-    background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
-    box-shadow: 0 3px 10px rgba(229, 57, 53, 0.4);
+.btn-sun {
+    background: linear-gradient(135deg, #FFA726 0%, #FB8C00 100%);
+    box-shadow: 0 3px 10px rgba(251, 140, 0, 0.4);
     margin-top: 0;
     width: auto;
     padding: 8px 24px;
 }
 
-.btn-feed:hover:not(:disabled) {
-    background: linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%);
+.btn-sun:hover:not(:disabled) {
+    background: linear-gradient(135deg, #FB8C00 0%, #E65100 100%);
 }
 
 .event-progress-wrap {
@@ -881,7 +921,7 @@ body {
 
 .event-progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--orange) 0%, var(--green-primary) 100%);
+    background: linear-gradient(90deg, #FFD54F 0%, #FB8C00 100%);
     border-radius: 999px;
     transition: width 0.4s ease;
 }
@@ -906,7 +946,7 @@ body {
 
 .milestone-dot.ready {
     color: #fff;
-    background: var(--orange);
+    background: #FB8C00;
     animation: pulseBanner 1.5s infinite;
 }
 
